@@ -63,7 +63,7 @@
         };
 
         service.update = function(section, item) {
-            return $http.put(getUrl(section, item), item);
+            return $http.put(getUrl(section, item.id), item);
         };
         
         service.get = function(section, id) {
