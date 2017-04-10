@@ -1,5 +1,7 @@
 package com.ferdisonmezay.tutorials.genericrestapi.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseModel {
+@SuppressWarnings("serial")
+public class BaseModel implements Serializable {
+	
 	@Id  
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
     @Basic(optional = false)  

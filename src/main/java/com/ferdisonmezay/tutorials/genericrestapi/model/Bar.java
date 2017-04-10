@@ -4,10 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name="BAR")
+@Table(name="bar")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bar extends BaseModel {
 	
+	private static final long serialVersionUID = -1833470956169842323L;
+
 	@Column(name="property_name")
 	private String propertyName; 
 

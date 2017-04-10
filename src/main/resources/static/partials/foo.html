@@ -1,0 +1,60 @@
+<ol class="breadcrumb">
+  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+  <li class="active">Foo</li>
+</ol>
+
+<div class="row" data-ng-controller="FooController">
+  <div class="col-md-8">
+    <h4>Foo</h4>
+    <div class="white-background" style="padding:15px;">
+	    <table class="table table-hover table-condensed">
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>Name</th>
+	          <th>Age</th>
+	          <th>Edit</th>
+	         </tr>
+	      </thead> 
+	      <tbody>
+	        <tr ng-repeat="foo in foos" ng-class="(foo.id == currentFoo.id) ? 'warning' : ''">
+	          <td>{{foo.id}}</td>
+	          <td width="50%"><a ng-href="#/foo/{{foo.id}}">{{ foo.name }}</a></td>
+	          <td width="25%">{{ foo.age }}</td>
+	          <td  width="5%" style="text-align:center;">
+	            <a class="btn btn-xs btn-success" ng-click="selectFoo(foo)"><i class="fa fa-pencil-square-o "></i></a>
+		        </td> 
+	         </tr>        
+	      </tbody>
+	    </table>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <h4 style="color:#B80D57;">{{actionName}}</h4>
+    <div class="white-background" style="padding:20px;">
+    <form name="fooForm" ng-submit="submit()" method="POST">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <input value="" name="name" id="name" type="text" ng-model="foo.name" class="form-control">
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label" for="age">age</label>
+            <input value="" name="age" id="age" type="text" ng-model="foo.age" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <input class="btn btn-success btn-sm" type="submit" id="submit" value="{{submitButtonLabel}}" />
+          <a ng-if="currentFoo.id" ng-click="delete(currentFoo.id)" class="btn btn-danger btn-sm">Delete</a>
+          <a ng-if="currentFoo.id" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</a>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

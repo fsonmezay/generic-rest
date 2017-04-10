@@ -3,10 +3,10 @@ package com.ferdisonmezay.tutorials.genericrestapi.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ferdisonmezay.tutorials.genericrestapi.model.Foo;
+import com.ferdisonmezay.tutorials.genericrestapi.model.Bar;
 
 @RestController
-@RequestMapping("/foo")
-public class FooController extends GenericRestController<Foo> {
+@RequestMapping("/bar")
+public class BarController extends GenericRestController<Bar> {
 
 }
