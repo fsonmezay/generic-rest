@@ -77,6 +77,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- needed when running as linux service -->
+				<configuration>
+			        <executable>true</executable>
+			    </configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.ferdisonmezay.tutorials.genericrestapi.dto.ErrorJsonDto;
+
 @RestController
 public class CustomErrorController implements ErrorController {
 
@@ -22,8 +24,8 @@ public class CustomErrorController implements ErrorController {
     private ErrorAttributes errorAttributes;
 
     @RequestMapping(value = PATH)
-    ErrorJson error(HttpServletRequest request, HttpServletResponse response) {
-        return new ErrorJson(response.getStatus(), getErrorAttributes(request, true));
+    ErrorJsonDto error(HttpServletRequest request, HttpServletResponse response) {
+        return new ErrorJsonDto(response.getStatus(), getErrorAttributes(request, true));
     }
 
     @Override
@@ -35,5 +37,4 @@ public class CustomErrorController implements ErrorController {
         RequestAttributes requestAttributes = new ServletRequestAttributes(request);
         return errorAttributes.getErrorAttributes(requestAttributes, includeStackTrace);
     }
-
 }
